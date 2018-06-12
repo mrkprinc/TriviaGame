@@ -1,0 +1,30 @@
+body {
+
+}
+
+header {
+
+}
+
+section {
+
+}
+
+header::after, section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 20px 0 10px 0;
+    background-color:#666666;
+    color: #cccccc;
+    text-align: center;
+    font-size: 12px;
+    border-top: 3px solid #ccc;
+}
+
