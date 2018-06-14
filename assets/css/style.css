@@ -1,5 +1,7 @@
 body {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
 
 /* header {
@@ -30,7 +32,34 @@ main {
     height: 400px;
 
     background-color: #666;
+    opacity: 0.2;
+
+    display: flex;
+    justify-content: center;
+}
+
+.dl {
+    background-color: white;
     opacity: 0.5;
+    position: absolute;
+}
+
+.dummy-layer3 {
+    bottom: 120px;
+    width: 55%;
+    height: 270px;
+}
+
+.dummy-layer2 {
+    bottom: 65px;
+    width: 75%;
+    height: 305px;
+}
+
+.dummy-layer1 {
+    bottom: 10px;
+    width: 95%;
+    height: 340px;
 }
 
 #div-four {
@@ -65,7 +94,29 @@ header::after, main::after {
 }
 
 #console {
+    position: relative;
     padding:24px;
+    display: flex;
+    justify-content: center;
+}
+
+#timer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    bottom: 10px;
+    width: 225px;
+    height: 90px;
+
+    padding: 4px;
+    border-radius: 12px;
+}
+
+#span-time {
+    width: 100%;    
 }
 
 footer {
