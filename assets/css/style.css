@@ -2,6 +2,10 @@ body {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+
+    background-image: url('../images/congruent_pentagon.png');
+    background-position: center;
+    background-repeat: repeat;
 }
 
 /* header {
@@ -14,6 +18,7 @@ main {
     max-width: 500px;
     height: 500px;
     margin: 24px auto;
+    min-width: 350px;
 
     display: flex;
     flex-direction: column;
@@ -31,16 +36,11 @@ main {
     width: 95%;
     height: 400px;
 
-    background-color: #666;
-    opacity: 0.2;
-
     display: flex;
     justify-content: center;
 }
 
 .dl {
-    background-color: white;
-    opacity: 0.5;
     position: absolute;
 }
 
@@ -78,6 +78,23 @@ main {
     z-index: 40;
 }
 
+.card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 4px solid #333;
+    background-color: #fefefe;
+    /* opacity: 0.75; */
+}
+
+#card-alpha {
+    width: 50%;
+    height: 235px;
+    bottom: 125px;
+}
+
 header::after, main::after {
     content: "";
     display: table;
@@ -89,6 +106,7 @@ header::after, main::after {
     bottom: 0px;
     width: 100%;
     text-align: center;
+    min-width: 350px;
 
     z-index: 50;
 }
@@ -98,6 +116,9 @@ header::after, main::after {
     padding:24px;
     display: flex;
     justify-content: center;
+
+    background-color: #b1f6cb;
+    border-top: 3px solid #ccc;
 }
 
 #timer {
