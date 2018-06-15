@@ -22,13 +22,13 @@ function nextCard() {
             bottom: '120px',
             width: '55%',
             height: '270px'
-        }).appendTo("#div-three");
+        }).prependTo("#div-three");
 
     cardThree.animate({
         bottom: '65px',
         width: '75%',
         height: '305px'
-    }).appendTo("#div-two");
+    }).prependTo("#div-two");
 
     cardTwo.animate({
         bottom: '10px',

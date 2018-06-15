@@ -26,6 +26,16 @@ main {
     align-items: center;
 }
 
+#console-content {
+    width: 90%;
+    max-width: 500px;
+    height: 75px;
+    padding: 6px 0;
+    min-width: 350px;
+
+    display: flex;
+}
+
 #title {
     position: absolute;
     top: 0px;
@@ -95,11 +105,11 @@ main {
     bottom: 125px;
 }
 
-header::after, main::after {
+/* header::after, main::after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 #div-pageBottom {
     position: fixed;
@@ -113,23 +123,24 @@ header::after, main::after {
 
 #console {
     position: relative;
-    padding:24px;
     display: flex;
     justify-content: center;
 
     background-color: #b1f6cb;
-    border-top: 3px solid #ccc;
+    border-top: 3px solid #fdf;
 }
 
 #timer {
-    position: absolute;
+    position: relative;
+    float: left;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 
-    bottom: 10px;
-    width: 225px;
+    bottom: 22px;
+    width: 200px;
     height: 90px;
 
     padding: 4px;
@@ -138,6 +149,14 @@ header::after, main::after {
 
 #span-time {
     width: 100%;    
+}
+
+.button {
+    width: 75px;
+    height: 75px;
+    margin-left: 5px;
+    float: left;
+    flex-grow: 1;
 }
 
 footer {
