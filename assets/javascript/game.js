@@ -13,7 +13,8 @@ $(document).ready(function() {
     {
         question: "<b>Test Question 1</b>",
         answers: "<ul><li>answer A</li> <li>answer B</li> <li>answer C</li></ul>",
-        correct: "A"
+        correct: "A",
+        correctFull: "A: SampleAnswer"
     },
 
     {
@@ -29,14 +30,15 @@ $(document).ready(function() {
 
 // TEMP
 $("body").on("click", function(){
-    nextCard();
+    // nextCard();
 })
 
 function nextCard() {
     
+    // these variables select the three cards already visible in the 'deck'
     var cardThree = $("#div-three > .card");
     var cardTwo = $("#div-two > .card");
-    var cardFront = $("#div-front > .card"); 
+    var cardFront = $("#div-front > .card");
     
     if(!noMoreCards) {
         // clone the prototype card and put it in back position
@@ -61,24 +63,24 @@ function nextCard() {
             if(i % 2 === 0) {
                 thisCard.append(qBank[q].question);
                 thisCard.append(qBank[q].answers);
-            } 
+            }
 
         } else {
             // there are no questions left in the bank
-            thisCard.append("<span>Final Stats</span>");
+            thisCard.html("<span>Final Stats</span>");
             noMoreCards = true;
         }        
     }
 
     // move cards forward
     cardThree.animate({
-        bottom: '65px',
+        bottom: '70px',
         width: '75%',
         height: '305px'
     }).prependTo("#div-two");
 
     cardTwo.animate({
-        bottom: '10px',
+        bottom: '20px',
         width: '95%',
         height: '340px'
     }).prependTo("#div-front");
@@ -94,10 +96,12 @@ function nextCard() {
 
     i++;
 
+    // toggle buttons on or off
     if(btnIsActive === true) {
         btnIsActive = false;
-    } else {btnIsActive = true;}
-    console.log(btnIsActive);
+    } else {
+        btnIsActive = true;
+    }
 }
 
 function endGame() {
@@ -114,9 +118,9 @@ $(".button").on("click", function() {
         var answerCard = $("#div-two > .card");
 
         if($(this).attr("data-response") === qBank[q].correct) {
-            answerCard.append("<span>That's right!</span>");
+            answerCard.append("<b>Correct!</b>");
         } else {
-            answerCard.append("<span>That's wrong!</span>");
+            answerCard.append("<b>Wrong!</b> <span>The correct answer is</span> <span>" + qBank[q].correctFull + "</span>");
         }
 
         nextCard();

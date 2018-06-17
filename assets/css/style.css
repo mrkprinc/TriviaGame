@@ -1,8 +1,8 @@
 body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 2.5;
     color: #333;
 
     background-image: url('../images/congruent_pentagon.png');
@@ -14,6 +14,10 @@ b {
     font-weight: 700;
 }
 
+ul {
+    line-height: 1.5;
+}
+
 header {
     text-align: center;
 }
@@ -22,9 +26,9 @@ main {
     position: relative;
     width: 90%;
     max-width: 600px;
-    height: 500px;
+    /* height: 50%; */
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 12px;
     min-width: 350px;
 
     display: flex;
@@ -37,7 +41,7 @@ main {
     width: 90%;
     max-width: 500px;
     height: 75px;
-    padding: 6px 0;
+    padding: 6px 0 12px;
     min-width: 350px;
 
     display: flex;
@@ -46,6 +50,8 @@ main {
 #title {
     position: absolute;
     top: 0px;
+    display: none;
+
     font-family: 'Just Another Hand', sans-serif;
     font-size: 38px;
     color: #777;
@@ -80,13 +86,12 @@ main {
     position: absolute;
     display: none;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-    border: 2px solid #444;
+    border: 1px solid #444;
     box-shadow: 0px -1px 3px #777;
     background-color: #fefefe;
-    /* opacity: 0.75; */
 }
 
 .show {
@@ -121,7 +126,6 @@ main {
     justify-content: center;
 
     background-color: #b1f6cb;
-    border-top: 3px solid #fdf;
 }
 
 #timer {
@@ -139,6 +143,8 @@ main {
 
     padding: 4px;
     border-radius: 12px;
+    border: 3px solid #b1f6cb;
+    background-color: #fefefe;
 }
 
 #span-time {
@@ -152,7 +158,22 @@ main {
     margin-left: 5px;
     float: left;
     flex-grow: 1;
+
+    border: 2px solid #444;
+    box-shadow: 0px -1px 3px #777;
     border-radius: 4px;
+}
+
+#buttonA {
+    background-color: skyblue;
+}
+
+#buttonB {
+    background-color: lightcoral;
+}
+
+#buttonC {
+    background-color: blueviolet;
 }
 
 .btn-label {
@@ -160,16 +181,14 @@ main {
     margin: 0 auto;
     font-size: 32px;
     font-weight: 600;
+    cursor: default;
 }
 
 footer {
-    /* position: fixed;
-    bottom: 0px;
-    width: 100%; */
-    padding: 20px 0 10px 0;
+    display: none;
+    padding: 6px 0;
     background-color:#333;
     color: #cccccc;
-    /* text-align: center; */
     font-size: 12px;
     border-top: 3px solid #ccc;
 }
@@ -190,5 +209,15 @@ footer {
 }
 
 @media screen and (min-width: 640px) {
+    #title {
+        display: block;
+    }
+
+    main {
+        padding-top: 80px;
+    }
     
+    footer {
+        display: block;
+    }
 }
