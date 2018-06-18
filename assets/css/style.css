@@ -167,12 +167,6 @@ main {
     background-color: blueviolet;
 }
 
-.btnRestart {
-    position: absolute;
-    display: none;
-    font-size: 22px;
-}
-
 .show {
     display: flex;
 }

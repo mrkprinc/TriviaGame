@@ -10,7 +10,6 @@ $(document).ready(function() {
     var varTimerQ = null;
 
     var correctTally = 0;
-    var wrongTally = 0;
 
 // question bank
 
@@ -111,7 +110,6 @@ function nextCard() {
         } else {
 
             cardTwo.html("<span>You got</span> <span>" + correctTally/qBank.length*100 + "%</span>");
-            $("#btn-restart").addClass("show");
             btnIsActive = false;
             timerA();
             
@@ -170,6 +168,19 @@ $(".btnAnswer").on("click", function() {
 
         nextCard();
     }
+})
+
+$("#btn-restart").on("click", function() {
+
+    i = 0;
+    btnIsActive = true;
+    noMoreCards = false;
+    correctTally = 0;
+
+    $(this).removeClass("show");
+    nextCard();
+    nextCard();
+    nextCard();
 })
 
 // execute
