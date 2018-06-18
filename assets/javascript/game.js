@@ -17,15 +17,14 @@ $(document).ready(function() {
 
     {
         question: "<b>Test Question 1</b>",
-        answers: "<ul><li>answer A</li> <li>answer B</li> <li>answer C</li></ul>",
-        correct: "A",
-        correctFull: "A: SampleAnswer"
+        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        correctIndex: "0"
     },
 
     {
         question: "<b>Text Question 2</b>",
-        answers: "<ul><li>answer A</li> <li>answer B</li> <li>answer C</li></ul>",
-        correct: "B"
+        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        correctIndex: "1"
     }
 
     ]
@@ -41,16 +40,17 @@ function nextCard() {
     
     if(!noMoreCards) {
         // clone the prototype card and put it in back position
-        $("#card-alpha").clone().empty()
-        .addClass("show")
-        .appendTo("#div-four")
-        .animate({
-            bottom: '120px',
-            width: '55%',
-            height: '270px'
-        })
-        .attr("id", "card" + i)
-        .prependTo("#div-three");
+        // $("#card-alpha").clone().empty()
+        // .addClass("show")
+        // .appendTo("#div-four")
+        // .animate({
+        //     bottom: '120px',
+        //     width: '55%',
+        //     height: '270px'
+        // })
+        // .attr("id", "card" + i)
+        // .prependTo("#div-three");
+        newCard();
         
         var q = Math.floor(i/2);
         var id = "#card" + i;
@@ -61,7 +61,9 @@ function nextCard() {
             // if i is even, put next question on the new card
             if(i % 2 === 0) {
                 thisCard.append(qBank[q].question);
-                thisCard.append(qBank[q].answers);
+                var answers = $("<ul>");
+                answers.html(qBank[q].answers);
+                thisCard.append(answers);
             }
 
         } else {
@@ -88,10 +90,8 @@ function nextCard() {
         bottom: '-150px',
         opacity: '0'
     });
-
     
-    
-    function cardStart(thisCard) {
+    function cardStart() {
 
         // TEMP
         console.log(i);
@@ -122,6 +122,19 @@ function nextCard() {
     i++;
 }
 
+function newCard() {
+    $("#card-alpha").clone().empty()
+    .addClass("show")
+    .appendTo("#div-four")
+    .animate({
+        bottom: '120px',
+        width: '55%',
+        height: '270px'
+    })
+    .attr("id", "card" + i)
+    .prependTo("#div-three");
+}
+
 function timerA() {
     varTimerA = setTimeout(nextCard, 3.5*1000);
 }
@@ -138,7 +151,7 @@ function timerQ() {
         } else {
             var q = Math.floor((i-3)/2);
             var answerCard = $("#div-two > .card");
-            answerCard.append("<span>The correct answer is</span> <span>" + qBank[q].correctFull + "</span>");
+            answerCard.append("<span>The correct answer is</span> <span><ul>" + qBank[q].answers[qBank[q].correctIndex] + "</ul></span>");
             nextCard();
             span.html('--')
             clearTime();
@@ -163,11 +176,11 @@ $(".btnAnswer").on("click", function() {
         var q = Math.floor((i-3)/2);
         var answerCard = $("#div-two > .card");
 
-        if($(this).attr("data-response") === qBank[q].correct) {
+        if($(this).attr("data-response") === qBank[q].correctIndex) {
             answerCard.append("<b>Correct!</b>");
             correctTally++;
         } else {
-            answerCard.append("<b>Wrong!</b> <span>The correct answer is</span> <span>" + qBank[q].correctFull + "</span>");
+            answerCard.append("<b>Wrong!</b> <span>The correct answer is</span> <span><ul>" + qBank[q].answers[qBank[q].correctIndex] + "</ul></span>");
         }
 
         nextCard();
@@ -191,7 +204,12 @@ $(".btnRestart").on("click", function() {
 
 // execute
 
-nextCard();
+// create title card
+newCard();
+$("#card0").attr("id", "title");
+
+$("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
+
 nextCard();
 nextCard();
 
