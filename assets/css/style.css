@@ -82,6 +82,10 @@ main {
     background-color: #fefefe;
 }
 
+.card > span, img {
+    flex-shrink: 1;
+}
+
 #card-alpha {
     width: 50%;
     height: 235px;

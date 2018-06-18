@@ -16,17 +16,46 @@ $(document).ready(function() {
     var qBank = [
 
     {
-        question: "<b>Test Question 1</b>",
-        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        question: "<b>Who was the big bad in Season 1?</b>",
+        answers: ["<li>answer A</li>", "<li>The Master</li>", "<li>answer C</li>"],
+        correctIndex: "1"
+    },
+
+    {
+        question: "<b>Who was the big bad in Season 2?</b>",
+        answers: ["<li>answer A</li>", "<li>Angelus</li>", "<li>answer C</li>"],
+        correctIndex: "1"
+    },
+
+    {
+        question: "<b>Who was the big bad in Season 3?</b>",
+        answers: ["<li>Principal</li>", "<li>answer B</li>", "<li>answer C</li>"],
         correctIndex: "0"
     },
 
     {
-        question: "<b>Text Question 2</b>",
-        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        question: "<b>Who was the big bad in Season 4?</b>",
+        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>Adam</li>"],
+        correctIndex: "2"
+    },
+    
+    {
+        question: "<b>Who was the big bad in Season 5?</b>",
+        answers: ["<li>Glory</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        correctIndex: "0"
+    },
+    
+    {
+        question: "<b>Who was the big bad in Season 6?</b>",
+        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>Dark Willow</li>"],
+        correctIndex: "2"
+    },
+    
+    {
+        question: "<b>Who was the big bad in Season 7?</b>",
+        answers: ["<li>answer A</li>", "<li>The First Evil</li>", "<li>answer C</li>"],
         correctIndex: "1"
-    }
-
+    },
     ]
 
 // global functions
