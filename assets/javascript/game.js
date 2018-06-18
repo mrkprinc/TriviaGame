@@ -238,9 +238,9 @@ newCard();
 $("#card0").attr("id", "title");
 $("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
 
-newCard();
-$("#card0").attr("id", "def");
-$("#def").html("<span>definition</span>")
+// newCard();
+// $("#card0").attr("id", "def");
+// $("#def").html("<span>definition</span>")
 
 nextCard();
 nextCard();
