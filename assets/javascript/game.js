@@ -240,8 +240,9 @@ $("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.
 
 newCard();
 $("#card0").attr("id", "def");
-$("#def").html("<span></span>")
+$("#def").html("<span>definition</span>")
 
+nextCard();
 nextCard();
 
 
