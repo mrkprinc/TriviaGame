@@ -82,7 +82,7 @@ main {
     background-color: #fefefe;
 }
 
-.card > span, img {
+.card > span {
     flex-shrink: 1;
 }
 
