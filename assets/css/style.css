@@ -2,7 +2,7 @@ body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    line-height: 2.5;
+    line-height: 1.5;
     color: #333;
 
     background-image: url('../images/congruent_pentagon.png');
@@ -12,6 +12,7 @@ body {
 
 b {
     font-weight: 700;
+    line-height: 2.5;
 }
 
 ul {
@@ -87,6 +88,10 @@ main {
     bottom: 125px;
 }
 
+#span-percent {
+    font-size: 32px;
+}
+
 /* header::after, main::after {
     content: "";
     display: table;
@@ -132,17 +137,18 @@ main {
 }
 
 #span-time {
-    width: 100%;    
+    width: 100%;
+    font-size: 24px;    
 }
 
 .button {
     padding: 8px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;    
     align-items:center;
 
-    margin-left: 5px;
+    margin: 0 3px;
     float: left;
     flex-grow: 1;
 
@@ -153,6 +159,14 @@ main {
     font-size: 32px;
     font-weight: 550;
     cursor: default;
+}
+
+.btnRestart {
+    flex-grow: 0;
+    margin: auto;
+    line-height: 1;
+    display: none;
+    opacity: 0;
 }
 
 #buttonA {

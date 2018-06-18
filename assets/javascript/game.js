@@ -109,10 +109,13 @@ function nextCard() {
             }
         } else {
 
-            cardTwo.html("<span>You got</span> <span>" + correctTally/qBank.length*100 + "%</span>");
+            cardTwo.html("<span>You got</span> <span id='span-percent'>" + correctTally/qBank.length*100 + "%</span>");
             btnIsActive = false;
             timerA();
-            
+            $("#btn-restart")
+                .delay(4*1000)
+                .addClass("show")
+                .animate({opacity: 1});
         }
     }
 
@@ -162,6 +165,7 @@ $(".btnAnswer").on("click", function() {
 
         if($(this).attr("data-response") === qBank[q].correct) {
             answerCard.append("<b>Correct!</b>");
+            correctTally++;
         } else {
             answerCard.append("<b>Wrong!</b> <span>The correct answer is</span> <span>" + qBank[q].correctFull + "</span>");
         }
@@ -170,14 +174,16 @@ $(".btnAnswer").on("click", function() {
     }
 })
 
-$("#btn-restart").on("click", function() {
+$(".btnRestart").on("click", function() {
 
     i = 0;
     btnIsActive = true;
     noMoreCards = false;
     correctTally = 0;
 
-    $(this).removeClass("show");
+    $(this)
+        .animate({opacity: 0})
+        .removeClass("show");
     nextCard();
     nextCard();
     nextCard();
