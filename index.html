@@ -15,16 +15,12 @@
     </head>
     
     <body>
-    
+        
         <main>
-
-            <span id="title">
-                    Trivia Game
-            </span>
 
             <div id="div-four" class="layers">
 
-                <div id="card-alpha" class="card">
+                <div id="card-alpha" class="card" data-lastCard="N">
                     Alpha
                 </div>
 
@@ -41,6 +37,10 @@
             <div id="div-front" class="layers">
 
             </div>
+
+            <div id="btn-restart" class="button btnRestart">
+                Start Again
+            </div>
             
         </main>
 
@@ -53,19 +53,19 @@
                     <div id="timer" class="wf2">
                         Time Remaining:
     
-                        <span id="span-time"></span>
+                        <span id="span-time">--</span>
                         
                     </div>
     
-                    <div id="buttonA" class="button wf2" data-response="A">
+                    <div id="buttonA" class="button btnAnswer" data-response="A">
                         <span class="btn-label">A</span>
                     </div>
     
-                    <div id="buttonB" class="button wf2" data-response="B">
+                    <div id="buttonB" class="button btnAnswer" data-response="B">
                         <span class="btn-label">B</span>
                     </div>
     
-                    <div id="buttonC" class="button wf2" data-response="C">
+                    <div id="buttonC" class="button btnAnswer" data-response="C">
                         <span class="btn-label">C</span>
                     </div>
 
@@ -74,7 +74,7 @@
             </div>
 
             <footer>
-                &copy; Mark Prince 2018
+                Trivia Game &copy; Mark Prince 2018
             </footer>
 
         </section>

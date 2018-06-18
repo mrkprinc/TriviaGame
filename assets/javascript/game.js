@@ -3,8 +3,14 @@ $(document).ready(function() {
 // global variables
 
     var i = 0;
-    var btnIsActive = false;
+    var btnIsActive = true;
     var noMoreCards = false;
+
+    var varTimerA = null;
+    var varTimerQ = null;
+
+    var correctTally = 0;
+    var wrongTally = 0;
 
 // question bank
 
@@ -26,12 +32,6 @@ $(document).ready(function() {
     ]
 
 // global functions
-
-
-// TEMP
-$("body").on("click", function(){
-    // nextCard();
-})
 
 function nextCard() {
     
@@ -67,7 +67,7 @@ function nextCard() {
 
         } else {
             // there are no questions left in the bank
-            thisCard.html("<span>Final Stats</span>");
+            thisCard.attr("data-lastCard", "Y");
             noMoreCards = true;
         }        
     }
@@ -83,36 +83,81 @@ function nextCard() {
         bottom: '20px',
         width: '95%',
         height: '340px'
-    }).prependTo("#div-front");
+    }, cardStart).prependTo("#div-front");
 
     cardFront.animate({
         bottom: '-150px',
         opacity: '0'
-    }, removeCard);
+    });
+
     
-    function removeCard() {
+    
+    function cardStart(thisCard) {
+
+        // TEMP
+        console.log(i);
+        
+        // remove front card
         cardFront.detach();
+
+        if(cardTwo.attr('data-lastCard') === 'N') {
+            if(i % 2 === 0) {
+                btnIsActive = false;
+                timerA();
+            } else {
+                btnIsActive = true;
+                timerQ();
+            }
+        } else {
+
+            cardTwo.html("<span>You got</span> <span>" + correctTally/qBank.length*100 + "%</span>");
+            $("#btn-restart").addClass("show");
+            btnIsActive = false;
+            timerA();
+            
+        }
     }
 
     i++;
+}
 
-    // toggle buttons on or off
-    if(btnIsActive === true) {
-        btnIsActive = false;
-    } else {
-        btnIsActive = true;
+function timerA() {
+    varTimerA = setTimeout(nextCard, 3.5*1000);
+}
+
+function timerQ() {
+    var s = 10;
+    var span = $("#span-time");
+    span.html(s);
+    varTimerQ = setInterval(countdown, 1000);
+    function countdown() {
+        s--;
+        if(s > 0) {
+            span.html(s);
+        } else {
+            var q = Math.floor((i-3)/2);
+            var answerCard = $("#div-two > .card");
+            answerCard.append("<span>The correct answer is</span> <span>" + qBank[q].correctFull + "</span>");
+            nextCard();
+            span.html('--')
+            clearTime();
+        }
     }
 }
 
-function endGame() {
-    
+function clearTime() {
+    clearInterval(varTimerQ);
+    clearTimeout(varTimerA);
+    $("#span-time").html("--");
 }
 
 // click listeners
 
-$(".button").on("click", function() {
+$(".btnAnswer").on("click", function() {
 
     if(btnIsActive === true) {
+        
+        clearTime();
         
         var q = Math.floor((i-3)/2);
         var answerCard = $("#div-two > .card");
