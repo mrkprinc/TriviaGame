@@ -11,7 +11,7 @@ body {
 }
 
 b {
-    font-weight: 700;
+    font-weight: 650;
     line-height: 2.5;
 }
 
@@ -82,8 +82,13 @@ main {
     background-color: #fefefe;
 }
 
-.card > span {
+.card > b {
     flex-shrink: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 #card-alpha {
