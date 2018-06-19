@@ -250,7 +250,7 @@ $("#card0")
     .attr("id", "title2");
 $("#title2")
     .attr("data-cardType", "T")
-    .append("<ul> <li><b>Big Bad</b> /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>for each season of Buffy</li> </ul>")
+    .append("<ul> <li><b>Big Bad</b> /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>in each season of Buffy</li> </ul>")
 i=0;
 
 nextCard();
