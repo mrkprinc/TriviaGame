@@ -239,7 +239,7 @@ $("#title")
 newCard();
 $("#card0").attr("id", "def");
 $("#def")
-    .html("<span>Definition</span>")
+    .html("<span>Definition</span>");
     
 nextCard();
 
