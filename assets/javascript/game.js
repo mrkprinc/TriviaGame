@@ -68,17 +68,7 @@ function nextCard() {
     var cardFront = $("#div-front > .card");
     
     if(!noMoreCards) {
-        // clone the prototype card and put it in back position
-        // $("#card-alpha").clone().empty()
-        // .addClass("show")
-        // .appendTo("#div-four")
-        // .animate({
-        //     bottom: '120px',
-        //     width: '55%',
-        //     height: '270px'
-        // })
-        // .attr("id", "card" + i)
-        // .prependTo("#div-three");
+
         newCard();
         
         var q = Math.floor(i/2);
@@ -236,13 +226,21 @@ $(".btnRestart").on("click", function() {
 // create title card
 newCard();
 $("#card0").attr("id", "title");
-$("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
+$("#title")
+    .html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
+    .animate({
+        bottom: '70px',
+        width: '75%',
+        height: '305px'
+    })
+    .prependTo("#div-two");
 
-// newCard();
-// $("#card0").attr("id", "def");
-// $("#def").html("<span>definition</span>")
-
-nextCard();
+// create Big Bad definition card
+newCard();
+$("#card0").attr("id", "def");
+$("#def")
+    .html("<span>Definition</span>")
+    
 nextCard();
 
 
