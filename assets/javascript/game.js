@@ -77,13 +77,16 @@ function nextCard() {
         var thisCard = $(id); 
 
         if(q < qBank.length) {
-
             // if i is even, put next question on the new card
             if(i % 2 === 0) {
-                thisCard.append(qBank[q].question);
+                thisCard
+                    .append(qBank[q].question)
+                    .attr('data-cardType', 'Q');
                 var answers = $("<ul>");
                 answers.html(qBank[q].answers);
                 thisCard.append(answers);
+            } else {
+                thisCard.attr('data-cardType', 'A');
             }
 
         } else {
@@ -112,26 +115,30 @@ function nextCard() {
     });
     
     function cardStart() {
-
+        
         // TEMP
         console.log(i);
         
         // remove front card
         cardFront.detach();
+        cardFront = $('#div-front > .card')
 
-        if(cardTwo.attr('data-lastCard') === 'N') {
-            if(i % 2 === 0) {
-                btnIsActive = false;
-                timerA();
-            } else {
+        if(cardFront.attr('data-lastCard') === 'N') {
+            
+            
+            if(cardFront.attr('data-cardType') === 'Q') {
                 btnIsActive = true;
                 timerQ();
+            } else {
+                btnIsActive = false;
+                timerA();
             }
+
         } else {
 
-            cardTwo.html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>");
-            btnIsActive = false;
-            timerA();
+            cardTwo
+                .html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>")
+                // .attr('data-cardType', 'T');
             $("#btn-restart")
                 .delay(3*1000)
                 .addClass("show")
@@ -225,14 +232,19 @@ $(".btnRestart").on("click", function() {
 // execute
 
 // create title card
-newCard();
-$("#card0").attr("id", "title");
+nextCard();
+$("#card0")
+    .empty()
+    .attr("id", "title");
 $("#title")
+    .attr("data-cardType", "T")
     .append("<b>Buffy the Vampire Slayer</b>")
     .append("<img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'>")
     .append("<ul> <li>Big Bad /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>for each season of Buffy</li> </ul>")
+i=0;
 
 nextCard();
 nextCard();
 
+console.log(i);
 })
