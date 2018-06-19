@@ -16,15 +16,45 @@ $(document).ready(function() {
     var qBank = [
 
     {
-        question: "<b>Test Question 1</b>",
-        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        question: "<b>Who is the Big Bad of Season 1?</b>",
+        answers: ["<li>A. Spike</li>", "<li>B. The Master</li>", "<li>C. Mayor Richard Wilkins</li>"],
+        correctIndex: "1"
+    },
+
+    {
+        question: "<b>Who is the Big Bad of Season 2?</b>",
+        answers: ["<li>A. Xander</li>", "<li>B. Angelus</li>", "<li>C. Glory</li>"],
+        correctIndex: "1"
+    },
+
+    {
+        question: "<b>Who is the Big Bad of Season 3?</b>",
+        answers: ["<li>A. Faith Lehane</li>", "<li>B. The Initiative</li>", "<li>C. Mayor Richard Wilkins</li>"],
+        correctIndex: "2"
+    },
+
+    {
+        question: "<b>Who is the Big Bad of Season 4?</b>",
+        answers: ["<li>A. Adam</li>", "<li>B. Faith Lehane</li>", "<li>C. Tara</li>"],
         correctIndex: "0"
     },
 
     {
-        question: "<b>Text Question 2</b>",
-        answers: ["<li>answer A</li>", "<li>answer B</li>", "<li>answer C</li>"],
+        question: "<b>Who is the Big Bad of Season 5?</b>",
+        answers: ["<li>A. Dawn Summers</li>", "<li>B. Angel</li>", "<li>C. Glory</li>"],
+        correctIndex: "2"
+    },
+
+    {
+        question: "<b>Who is the Big Bad of Season 6?</b>",
+        answers: ["<li>A. The Initiative</li>", "<li>B. Willow</li>", "<li>C. Drusilla</li>"],
         correctIndex: "1"
+    },
+
+    {
+        question: "<b>Who is the Big Bad of Season 7?</b>",
+        answers: ["<li>A. Knights of Byzantium</li>", "<li>B. The Trio</li>", "<li>C. The First Evil</li>"],
+        correctIndex: "2"
     }
 
     ]
@@ -99,11 +129,11 @@ function nextCard() {
             }
         } else {
 
-            cardTwo.html("<span>You got</span> <span id='span-percent'>" + correctTally/qBank.length*100 + "%</span>");
+            cardTwo.html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>");
             btnIsActive = false;
             timerA();
             $("#btn-restart")
-                .delay(4*1000)
+                .delay(3*1000)
                 .addClass("show")
                 .animate({opacity: 1});
         }
@@ -126,11 +156,11 @@ function newCard() {
 }
 
 function timerA() {
-    varTimerA = setTimeout(nextCard, 2.5*1000);
+    varTimerA = setTimeout(nextCard, 3*1000);
 }
 
 function timerQ() {
-    var s = 10;
+    var s = 15;
     var span = $("#span-time");
     span.html(s);
     varTimerQ = setInterval(countdown, 1000);
@@ -197,7 +227,10 @@ $(".btnRestart").on("click", function() {
 // create title card
 newCard();
 $("#card0").attr("id", "title");
-$("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
+$("#title")
+    .append("<b>Buffy the Vampire Slayer</b>")
+    .append("<img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'>")
+    .append("<ul> <li>Big Bad /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>for each season of Buffy</li> </ul>")
 
 nextCard();
 nextCard();

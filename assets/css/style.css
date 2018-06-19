@@ -1,7 +1,7 @@
 body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     color: #333;
 
@@ -11,12 +11,29 @@ body {
 }
 
 b {
-    font-weight: 650;
+    font-weight: 550;
     line-height: 2.5;
+    white-space: nowrap;
+}
+
+i {
+    font-style: italic;
 }
 
 img {
     border: 2px solid #333;
+    max-width: 40%;
+    height: auto;
+    opacity: 0.95;
+}
+
+ul {
+    white-space: nowrap;
+}
+
+#title > ul {
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 main {
@@ -196,6 +213,14 @@ footer {
 
 @media screen and (min-width: 640px) {
 
+    body {
+        font-size: 18px;
+    }
+
+    b {
+        font-weight: 700;
+    }
+    
     footer {
         display: block;
     }
