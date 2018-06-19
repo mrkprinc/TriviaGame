@@ -202,6 +202,4 @@ $("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.
 nextCard();
 nextCard();
 
-
-
 })
