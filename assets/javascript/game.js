@@ -113,9 +113,6 @@ function nextCard() {
     
     function cardStart() {
 
-        // TEMP
-        console.log(i);
-        
         // remove front card
         cardFront.detach();
 
@@ -226,7 +223,7 @@ $(".btnRestart").on("click", function() {
 
 // create title card
 newCard();
-$("#card0").attr("id", "title");
+$("#card-2").attr("id", "title");
 $("#title")
     .append("<b>Buffy the Vampire Slayer</b>")
     .append("<img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'>")
