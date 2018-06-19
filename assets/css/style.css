@@ -84,6 +84,7 @@ main {
     background-color: #fefefe;
 }
 
+<<<<<<< HEAD
 .card > b {
     flex-shrink: 1;
 }
@@ -93,6 +94,8 @@ img {
     height: auto;
 }
 
+=======
+>>>>>>> parent of 77750f5... savepoint
 #card-alpha {
     width: 50%;
     height: 235px;
