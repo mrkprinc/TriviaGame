@@ -120,6 +120,7 @@ function nextCard() {
         cardFront.detach();
         cardFront = $('#div-front > .card')
 
+        // start timers for Q or A card
         if(cardFront.attr('data-cardType') === 'Q') {
             btnIsActive = true;
             timerQ();
@@ -128,6 +129,7 @@ function nextCard() {
             timerA();
         }
 
+        // if this is the last card, add quiz results, then make display 'try again' button
         if(cardFront.attr('data-lastCard') === 'Y') {
             cardTwo
                 .html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>")
@@ -143,6 +145,7 @@ function nextCard() {
 }
 
 function newCard() {
+    // clones alpha to create new card in the back layer
     $("#card-alpha").clone().empty()
     .addClass("show")
     .appendTo("#div-four")
@@ -156,10 +159,12 @@ function newCard() {
 }
 
 function timerA() {
+    // answer card timer
     varTimerA = setTimeout(nextCard, 3*1000);
 }
 
 function timerQ() {
+    // question card timer
     var s = 15;
     var span = $("#span-time");
     span.html(s);
@@ -188,6 +193,7 @@ function clearTime() {
 // click listeners
 
 $(".btnAnswer").on("click", function() {
+    // when user clicks a, b, c
 
     if(btnIsActive === true) {
         
@@ -196,6 +202,7 @@ $(".btnAnswer").on("click", function() {
         var q = Math.floor((i-3)/2);
         var answerCard = $("#div-two > .card");
 
+        // populate the answer card behind the question
         if($(this).attr("data-response") === qBank[q].correctIndex) {
             answerCard.append("<b>Correct!</b>");
             correctTally++;
@@ -208,7 +215,8 @@ $(".btnAnswer").on("click", function() {
 })
 
 $(".btnRestart").on("click", function() {
-
+    // start question cards again
+    
     i = 0;
     btnIsActive = true;
     noMoreCards = false;
