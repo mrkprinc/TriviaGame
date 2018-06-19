@@ -16,43 +16,43 @@ $(document).ready(function() {
     var qBank = [
 
     {
-        question: "<b>Who is the Big Bad of Season 1?</b>",
+        question: "<b>Who is the Big Bad in Season 1?</b>",
         answers: ["<li>A. Spike</li>", "<li>B. The Master</li>", "<li>C. Mayor Richard Wilkins</li>"],
         correctIndex: "1"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 2?</b>",
+        question: "<b>Who is the Big Bad in Season 2?</b>",
         answers: ["<li>A. Xander</li>", "<li>B. Angelus</li>", "<li>C. Glory</li>"],
         correctIndex: "1"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 3?</b>",
+        question: "<b>Who is the Big Bad in Season 3?</b>",
         answers: ["<li>A. Faith Lehane</li>", "<li>B. The Initiative</li>", "<li>C. Mayor Richard Wilkins</li>"],
         correctIndex: "2"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 4?</b>",
+        question: "<b>Who is the Big Bad in Season 4?</b>",
         answers: ["<li>A. Adam</li>", "<li>B. Faith Lehane</li>", "<li>C. Tara</li>"],
         correctIndex: "0"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 5?</b>",
+        question: "<b>Who is the Big Bad in Season 5?</b>",
         answers: ["<li>A. Dawn Summers</li>", "<li>B. Angel</li>", "<li>C. Glory</li>"],
         correctIndex: "2"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 6?</b>",
+        question: "<b>Who is the Big Bad in Season 6?</b>",
         answers: ["<li>A. The Initiative</li>", "<li>B. Willow</li>", "<li>C. Drusilla</li>"],
         correctIndex: "1"
     },
 
     {
-        question: "<b>Who is the Big Bad of Season 7?</b>",
+        question: "<b>Who is the Big Bad in Season 7?</b>",
         answers: ["<li>A. Knights of Byzantium</li>", "<li>B. The Trio</li>", "<li>C. The First Evil</li>"],
         correctIndex: "2"
     }
@@ -123,7 +123,7 @@ function nextCard() {
         cardFront.detach();
         cardFront = $('#div-front > .card')
 
-        if(cardFront.attr('data-lastCard') === 'N') {
+        // if(cardFront.attr('data-lastCard') === 'N') {
             
             
             if(cardFront.attr('data-cardType') === 'Q') {
@@ -134,16 +134,19 @@ function nextCard() {
                 timerA();
             }
 
-        } else {
+        // } else {
 
-            cardTwo
-                .html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>")
-                // .attr('data-cardType', 'T');
-            $("#btn-restart")
-                .delay(3*1000)
-                .addClass("show")
-                .animate({opacity: 1});
-        }
+            if(cardFront.attr('data-lastCard') === 'Y') {
+                cardTwo
+                    .html("<span>You got</span> <span id='span-percent'>" + Math.floor(correctTally/qBank.length*100) + "%</span>")
+                    .attr('data-cardType', 'T');
+                $("#btn-restart")
+                    .delay(3*1000)
+                    .addClass("show")
+                    .animate({opacity: 1});
+            }   
+            
+        // }
     }
 
     i++;
@@ -231,7 +234,7 @@ $(".btnRestart").on("click", function() {
 
 // execute
 
-// create title card
+// create title cards
 nextCard();
 $("#card0")
     .empty()
@@ -240,10 +243,18 @@ $("#title")
     .attr("data-cardType", "T")
     .append("<b>Buffy the Vampire Slayer</b>")
     .append("<img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'>")
-    .append("<ul> <li>Big Bad /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>for each season of Buffy</li> </ul>")
+    .append("<i>The Big Bads Quiz</i>");
 i=0;
 
 nextCard();
+$("#card0")
+    .empty()
+    .attr("id", "title2");
+$("#title2")
+    .attr("data-cardType", "T")
+    .append("<ul> <li><b>Big Bad</b> /big bad/ <i>noun</i></li> <li>the dominant and final villain</li> <li>for each season of Buffy</li> </ul>")
+i=0;
+
 nextCard();
 
 console.log(i);

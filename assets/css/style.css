@@ -25,15 +25,11 @@ img {
     max-width: 40%;
     height: auto;
     opacity: 0.95;
+    margin-bottom: 6px;
 }
 
 ul {
     white-space: nowrap;
-}
-
-#title > ul {
-    font-size: 14px;
-    margin-top: 8px;
 }
 
 main {
@@ -97,6 +93,7 @@ main {
     border: 1px solid #444;
     box-shadow: 0px -1px 3px #777;
     background-color: #fefefe;
+    overflow: hidden;
 }
 
 #card-alpha {
