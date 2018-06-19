@@ -155,7 +155,7 @@ function newCard() {
 }
 
 function timerA() {
-    varTimerA = setTimeout(nextCard, 3.5*1000);
+    varTimerA = setTimeout(nextCard, 2.5*1000);
 }
 
 function timerQ() {
@@ -226,21 +226,9 @@ $(".btnRestart").on("click", function() {
 // create title card
 newCard();
 $("#card0").attr("id", "title");
-$("#title")
-    .html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
-    .animate({
-        bottom: '70px',
-        width: '75%',
-        height: '305px'
-    })
-    .prependTo("#div-two");
+$("#title").html("<b>Buffy the Vampire Slayer</b> <img src='https://media.giphy.com/media/xT1XGLzxTFgIwxcbcY/giphy.gif' alt='Buffy'> <b>The Big Bads</b>")
 
-// create Big Bad definition card
-newCard();
-$("#card0").attr("id", "def");
-$("#def")
-    .html("<span>Definition</span>");
-    
+nextCard();
 nextCard();
 
 

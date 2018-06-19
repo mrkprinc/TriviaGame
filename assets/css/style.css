@@ -8,6 +8,8 @@ body {
     background-image: url('../images/congruent_pentagon.png');
     background-position: center;
     background-repeat: repeat;
+
+    display: none;
 }
 
 b {
