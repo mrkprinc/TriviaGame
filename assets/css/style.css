@@ -16,7 +16,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #005a00;
+    background-color: #466251;
     opacity: 0.2;
 }
 
@@ -133,7 +133,7 @@ main {
     display: flex;
     justify-content: center;
 
-    background-color: #99c199;
+    background-color: #8dc4a2;
     background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.07));
     box-shadow: 0px -1px 3px #ccc;
     opacity: 0.9;
@@ -154,7 +154,7 @@ main {
 
     padding: 4px;
     border-radius: 12px;
-    border: 3px solid #b1f6cb;
+    border: 3px solid #9fddb6;
     background-color: #fefefe;
 }
 
@@ -181,7 +181,7 @@ main {
 
     font-size: 32px;
     font-weight: 550;
-    cursor: default;
+    cursor: pointer;
 }
 
 .btnRestart {
@@ -190,6 +190,7 @@ main {
     line-height: 1;
     display: none;
     opacity: 0;
+    cursor: pointer;
 }
 
 #buttonA {
