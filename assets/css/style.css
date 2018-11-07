@@ -10,6 +10,16 @@ body {
     background-repeat: repeat;
 }
 
+#background-filter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #005a00;
+    opacity: 0.2;
+}
+
 b {
     font-weight: 550;
     line-height: 2.5;
@@ -93,6 +103,7 @@ main {
     border: 1px solid #444;
     box-shadow: 0px -1px 3px #777;
     background-color: #fefefe;
+    background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.07));
     overflow: hidden;
     opacity: 0.97;
 }
@@ -106,12 +117,6 @@ main {
 #span-percent {
     font-size: 32px;
 }
-
-/* header::after, main::after {
-    content: "";
-    display: table;
-    clear: both;
-} */
 
 #div-pageBottom {
     position: fixed;
@@ -128,7 +133,8 @@ main {
     display: flex;
     justify-content: center;
 
-    background-color: #b1f6cb;
+    background-color: #99c199;
+    background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.07));
     box-shadow: 0px -1px 3px #ccc;
     opacity: 0.9;
 }
@@ -171,6 +177,7 @@ main {
     border: 2px solid #444;
     box-shadow: 0px -1px 3px #777;
     border-radius: 4px;
+    background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.07));
 
     font-size: 32px;
     font-weight: 550;
